@@ -1,0 +1,7 @@
+{
+  "version": "0.8.27",
+  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/beta/eshobe-ecommerce-wp-theme-0.8.27.zip",
+  "published_at": "2026-11-19T17:29:13Z",
+  "sha256": "01d9f9b7dbd18e99843a272c34073139dd6737d089453e5045834b525efbc4a6",
+  "changelog": "## What's Changed\n* Fix the dist commit step so the update manifest is published by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/227\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.26...v0.8.27"
+}
