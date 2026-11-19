@@ -1,0 +1,94 @@
+name: Sync theme updates
+
+# WordPress's built-in updater (inc/theme-updater.php in the theme) fetches
+#   https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/<channel>/update.json
+# and only accepts a download_url that points back into this repo. So this
+# repo publishes its own artifacts: every run copies the newest release zip of
+# hamidnoshady/eshobe-ecommerce-wp-theme next to a generated manifest.
+#
+# Pulling is deliberate. A GitHub token belongs to one repository, so the
+# theme repo cannot push here; this repo's token can read that public repo's
+# releases, which keeps the whole thing free of shared secrets.
+
+on:
+  schedule:
+    # WordPress caches the manifest for 6 hours, so half-hourly is plenty.
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+env:
+  SRC_REPO: hamidnoshady/eshobe-ecommerce-wp-theme
+  RAW_BASE: https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main
+
+jobs:
+  sync:
+    # The commit this job pushes must not trigger the job again.
+    if: github.actor != 'github-actions[bot]'
+    name: Publish the newest theme release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+
+      - name: Copy the newest release into stable/ and beta/
+        run: |
+          set -euo pipefail
+          release=$(curl -fsSL "https://api.github.com/repos/${SRC_REPO}/releases/latest")
+          version=$(jq -r '.tag_name // ""' <<<"$release" | sed 's/^v//')
+          zip_url=$(jq -r '[.assets[] | select(.name | endswith(".zip"))][0].browser_download_url // ""' <<<"$release")
+          if [ -z "$version" ] || [ -z "$zip_url" ]; then
+            echo "::error::Could not read the newest release of ${SRC_REPO}."
+            exit 1
+          fi
+          echo "Newest release: ${version}"
+
+          zip="eshobe-ecommerce-wp-theme-${version}.zip"
+          if [ -f "stable/update.json" ] &&
+             [ "$(jq -r '.version // ""' stable/update.json)" = "$version" ] &&
+             [ -f "stable/${zip}" ] && [ -f "beta/${zip}" ]; then
+            echo "Already publishing ${version} - nothing to do."
+            exit 0
+          fi
+
+          changelog=$(jq -r '.body // ""' <<<"$release")
+          published_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          staged=$(mktemp -d)
+          curl -fsSL -o "${staged}/${zip}" "$zip_url"
+          sha256=$(sha256sum "${staged}/${zip}" | cut -d' ' -f1)
+
+          for channel in stable beta; do
+            mkdir -p "$channel"
+            cp "${staged}/${zip}" "${channel}/${zip}"
+            jq -n \
+              --arg version "$version" \
+              --arg download_url "${RAW_BASE}/${channel}/${zip}" \
+              --arg published_at "$published_at" \
+              --arg sha256 "$sha256" \
+              --arg changelog "$changelog" \
+              '{version: $version, download_url: $download_url, published_at: $published_at, sha256: $sha256, changelog: $changelog}' \
+              > "${channel}/update.json"
+          done
+          echo "Staged ${version} (sha256 ${sha256}) for stable and beta."
+
+      - name: Commit
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stable beta
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          version=$(jq -r .version stable/update.json)
+          git commit -q -m "Publish ${version}"
+          git push -q origin HEAD:main
