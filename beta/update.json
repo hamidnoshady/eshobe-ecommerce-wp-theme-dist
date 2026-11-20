@@ -1,7 +1,7 @@
 {
-  "version": "0.8.32",
-  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/beta/eshobe-ecommerce-wp-theme-0.8.32.zip",
-  "published_at": "2026-11-20T14:53:42Z",
-  "sha256": "a6c962938bfa3ac18b30266f67d60ca4f4987d87d515ceb940d615d0dd6e00f8",
-  "changelog": "## What's Changed\n* Show the discount breakdown for variable products in the mobile bar by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/233\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.31...v0.8.32"
+  "version": "0.8.33",
+  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/beta/eshobe-ecommerce-wp-theme-0.8.33.zip",
+  "published_at": "2026-11-20T22:06:50Z",
+  "sha256": "58c698072f33531f56c07a25935a4c71e4e5320d256ee8c094f2a9b2aaab23fa",
+  "changelog": "## What's Changed\n* Keep the discount breakdown in the purchase box when a variation is picked by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/235\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.32...v0.8.33"
 }
