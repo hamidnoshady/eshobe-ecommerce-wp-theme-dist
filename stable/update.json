@@ -1,7 +1,7 @@
 {
-  "version": "0.8.29",
-  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/stable/eshobe-ecommerce-wp-theme-0.8.29.zip",
-  "published_at": "2026-11-19T18:13:08Z",
-  "sha256": "1b6be25c2f06e17bfcaae81532ed2831bd008c984673a2ca29b00f8af1ec109c",
-  "changelog": "## What's Changed\n* Show plugin and cart-level discounts in cards, product page and cart drawer by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/229\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.28...v0.8.29"
+  "version": "0.8.30",
+  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/stable/eshobe-ecommerce-wp-theme-0.8.30.zip",
+  "published_at": "2026-11-20T11:10:45Z",
+  "sha256": "3d1b4fa70377c80a06f1bf2117d718d20a0c2c501beaf81b39cfb367ebffe741",
+  "changelog": "## What's Changed\n* Show the regular price and saving clearly on the single product page by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/231\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.29...v0.8.30"
 }
