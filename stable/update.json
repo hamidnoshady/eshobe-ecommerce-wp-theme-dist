@@ -1,7 +1,7 @@
 {
-  "version": "0.8.33",
-  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/stable/eshobe-ecommerce-wp-theme-0.8.33.zip",
-  "published_at": "2026-11-20T22:06:50Z",
-  "sha256": "58c698072f33531f56c07a25935a4c71e4e5320d256ee8c094f2a9b2aaab23fa",
-  "changelog": "## What's Changed\n* Keep the discount breakdown in the purchase box when a variation is picked by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/235\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.32...v0.8.33"
+  "version": "0.8.39",
+  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/stable/eshobe-ecommerce-wp-theme-0.8.39.zip",
+  "published_at": "2026-11-21T11:34:24Z",
+  "sha256": "5d1e2e41ab699395d9b3048f281d10d9c65995d7562486df9f61f49fb1da6ad3",
+  "changelog": "## What's Changed\n* Show a random slice of discounted products in the carousel by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/239\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.38...v0.8.39"
 }
