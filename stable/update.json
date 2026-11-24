@@ -1,7 +1,7 @@
 {
-  "version": "0.8.39",
-  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/stable/eshobe-ecommerce-wp-theme-0.8.39.zip",
-  "published_at": "2026-11-21T11:34:24Z",
-  "sha256": "5d1e2e41ab699395d9b3048f281d10d9c65995d7562486df9f61f49fb1da6ad3",
-  "changelog": "## What's Changed\n* Show a random slice of discounted products in the carousel by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/239\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.38...v0.8.39"
+  "version": "0.8.42",
+  "download_url": "https://raw.githubusercontent.com/hamidnoshady/eshobe-ecommerce-wp-theme-dist/main/stable/eshobe-ecommerce-wp-theme-0.8.42.zip",
+  "published_at": "2026-11-24T16:57:22Z",
+  "sha256": "3b704c7a74978a2ad936aefe244825d9dbb006dd62da0d4617f4e9361ab15e7c",
+  "changelog": "## What's Changed\n* Read variable arguments in the release capability guard by @hamidnoshady in https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/pull/242\n\n\n**Full Changelog**: https://github.com/hamidnoshady/eshobe-ecommerce-wp-theme/compare/v0.8.41...v0.8.42"
 }
